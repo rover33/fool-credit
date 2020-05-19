@@ -1,5 +1,12 @@
 <template>
   <div>
+      <div class="get-card-box">
+      <div class="credit-score-box">
+        <label>Credit Score:</label>
+        <input class="credit-score" placeholder="good"/>
+      </div>
+      <button class="card-button" v-on:click="submit">Get Your Card</button>
+    </div>
       <div v-for="cardData in cardDataList" :key="cardData.id">
         <div class="card">
           <div class="two-card">
@@ -37,8 +44,17 @@
 
 
 <script>
+
 export default {
-  name: 'Card'
+  name: 'Card',
+
+  props: ['intialSearch'],
+
+  data: function() {
+      return {
+        submit: this.initialSearch
+      }
+    }
   }
 
 </script>

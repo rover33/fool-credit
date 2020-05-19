@@ -1,20 +1,18 @@
 <template>
-<div class="card-box">
-    <CardSearch />
-    <Card />
+  <div class="card-box">
+      <Card />
   </div>
 </template>
 
 
 <script>
 import Card from "./Card";
-import CardSearch from "./CardSearch"
+
 export default {
   name: 'CardComparison',
 
   components: {
     Card,
-    CardSearch
   },
 
   methods: {
