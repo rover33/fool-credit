@@ -1,7 +1,8 @@
 <template>
   <div id="app">
-    <p>Card type: {{currentResult['card_type']}}</p>
-    <p>Credit rating: {{currentResult['credit_rating']}}</p>
+    <!-- <p>Card type: {{currentResult['card_type']}}</p>
+    <p>Credit rating: {{currentResult['credit_rating']}}</p> -->
+    <CardSearch />
     <TwoCards
         :cardOneData="currentResult['card1']"
         :cardTwoData="currentResult['card2']"
@@ -12,11 +13,13 @@
 
 import axios from "axios";
 import TwoCards from "./components/TwoCards";
+import CardSearch from "./components/CardSearch";
 
 export default {
   name: "App",
   components: {
-    TwoCards
+    TwoCards,
+    CardSearch,
   },
   created() {
     this.getCardData();
@@ -32,12 +35,12 @@ export default {
         // etc
         if (!this.currentResult.card1) {
           this.currentResult.card1 = {
-            offer_name: 'Missing card data'
+            offer_name: 'Sorry we do not have a card recommendation for you'
           }
         }
         if (!this.currentResult.card2) {
           this.currentResult.card2 = {
-            offer_name: 'Missing card data'
+            offer_name: 'Sorry we do not have a card recommendation for you'
           }
         }
         console.log(this.currentResult)

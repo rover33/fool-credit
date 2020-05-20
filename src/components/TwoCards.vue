@@ -10,6 +10,11 @@
           <button v-if="cardOneData.affiliate_link" class="card-apply">Apply Now</button>
           <button v-else class="card-apply">Read Review</button>
           <a class="full-review" href="#">Read our full review</a>
+          <label class="credit-rating-title">Credit Ratings</label>
+          <div class="credit-rating-box">
+            <div class="credit-rating">Credit Rating:</div>
+            <div class="credit-rating-text">{{cardOneData.credit_rating}}</div>
+          </div>
           <label class="ratings-title">Star Ratings</label>
           <div class="ratings">
             <div class="overall-rating">Overall Rating:</div>
@@ -55,6 +60,11 @@
         </div>
         <button class="card-apply">Apply Now</button>
         <a class="full-review" href="#">Read our full review</a>
+        <label class="credit-rating-title">Credit Ratings</label>
+          <div class="credit-rating-box">
+            <div class="credit-rating">Credit Rating:</div>
+            <div class="credit-rating-text">{{cardTwoData.credit_rating}}</div>
+          </div>
         <label class="ratings-title">Star Ratings</label>
         <div class="ratings">
           <div class="overall-rating">Overall Rating:</div>
@@ -93,6 +103,8 @@
     </div>
   </div>
 </template>
+
+
 <script>
 export default {
   name: "Card",
@@ -104,8 +116,7 @@ export default {
 </script>
 
 <style>
-.card {
-}
+
 .credit-score {
   width: 15rem;
 }
@@ -156,7 +167,8 @@ export default {
 
 .fees, 
 .aprs,
-.ratings-title {
+.ratings-title,
+.credit-rating-title {
   display: flex;
   font-weight: bold;
   font-size: 1.25rem;
@@ -166,7 +178,8 @@ export default {
 
 .all-fees, 
 .all-aprs,
-.ratings {
+.ratings,
+.credit-rating-box{
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -194,7 +207,8 @@ export default {
 .rewards-title,
 .overall-rating,
 .overall-apr-rating,
-.overall-fees-rating  {
+.overall-fees-rating,
+.credit-rating  {
   font-weight: bold;
   text-decoration: underline;
   padding-top: .5rem;
