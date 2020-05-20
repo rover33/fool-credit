@@ -7,7 +7,8 @@
           <div class="card-image">
             <img :src="cardOneData.offer_image" />
           </div>
-          <button class="card-apply">Apply Now</button>
+          <button v-if="cardOneData.affiliate_link" class="card-apply">Apply Now</button>
+          <button v-else class="card-apply">Read Review</button>
           <a class="full-review" href="#">Read our full review</a>
           <label class="ratings-title">Star Ratings</label>
           <div class="ratings">
@@ -118,9 +119,6 @@ export default {
 .card-name {
     border-radius: 4px;
     box-shadow: 0 0 6px 2px rgba(0,0,0,0.2);
-    /* grid-auto-rows: auto;
-    grid-template-rows: auto auto 110px 240px 260px auto auto 1fr auto 40px; */
-    flex-basis: 33%;
     max-width: 30%;
     width: 60%;
     padding: 1rem;
@@ -129,8 +127,8 @@ export default {
 }
 
 .card-container {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: 100px 165px;
 }
 
 .card-title {
