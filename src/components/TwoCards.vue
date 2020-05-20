@@ -48,6 +48,8 @@
           <div class="bonus">{{cardOneData.bonus}}</div>
           <div class="rewards-title">Rewards Program</div>
           <div class="rewards">{{cardOneData.rewards_program}}</div>
+          <div class="we-like">What We Like</div>
+          <div v-html="cardOneData.what_we_like" class="we-like-list" />
         </div>
         <button class="card-apply">Apply Now</button>
       </div>
@@ -97,6 +99,10 @@
           <div class="bonus">{{cardTwoData.bonus}}</div>
           <div class="rewards-title">Rewards Program</div>
           <div class="rewards">{{cardTwoData.rewards_program}}</div>
+          <div class="highlights-title">Highlights</div>
+          <div class="highlights-list" v-html="cardTwoData.marketing_bullets"/>
+          <div class="we-like">What We Like</div>
+          <div v-html="cardTwoData.what_we_like" class="we-like-list" />
         </div>
         <button class="card-apply">Apply Now</button>
       </div>
@@ -208,7 +214,9 @@ export default {
 .overall-rating,
 .overall-apr-rating,
 .overall-fees-rating,
-.credit-rating  {
+.credit-rating,
+.we-like,
+.highlights-title  {
   font-weight: bold;
   text-decoration: underline;
   padding-top: .5rem;
@@ -223,9 +231,20 @@ export default {
 .regular-apr,
 .bonus,
 .rewards,
-.stars {
+.stars ,
+.we-like {
   text-align: left;
   width: 90%;
+}
+
+.we-like-list,
+.highlights-list {
+  text-align: left;
+}
+
+ul {
+  padding-left: 1rem;
+  margin-top: 0;
 }
 
 img {

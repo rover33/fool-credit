@@ -37,6 +37,7 @@ export default {
             {text: "Excellent", value: "Excellent"},
             {text: "GoodExcellent", value: "GoodExcellent"},
             {text: "Fair", value: "Fair"},
+            {text: "NewFair", value: "NewFair"},
             {text: "Bad", value: "Bad"}
         ],
         cardOptions: [
@@ -65,6 +66,11 @@ export default {
 
 .card-option {
     padding-left: 1rem;
+}
+
+.card-type, 
+.credit-score {
+    font-weight: bold;
 }
 
 input {
