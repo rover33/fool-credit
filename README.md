@@ -1,5 +1,6 @@
 # foolapp
 
+
 ## Project setup
 ```
 npm install
@@ -21,4 +22,9 @@ Lastly, the develeoper will need to write a filter function for the the search t
 ### Design Decesions and Reasoning
 ```
 I desgined the page off the exisitng card comparison tool on the Ascent Webpage. I was able to get the correct colors and look and feel by inspecting the page. I was unable to find a search type field with dropdowns, so I created my own using the same color scheme. I made the search with drop downs so they could easily choose between them. I could have done this with radio buttons, but i felt the dropdowns looked a little cleaner.
+```
+
+### Code Sandbox Link
+```
+https://codesandbox.io/s/dark-dust-xwzmt?file=/src/App.vue
 ```
