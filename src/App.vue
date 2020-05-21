@@ -1,8 +1,6 @@
 <template>
   <div id="app">
-    <!-- <p>Card type: {{currentResult['card_type']}}</p>
-    <p>Credit rating: {{currentResult['credit_rating']}}</p> -->
-    <CardSearch />
+    <CardSearch :onSearch="search"/>
     <TwoCards
         :cardOneData="currentResult['card1']"
         :cardTwoData="currentResult['card2']"
@@ -10,11 +8,9 @@
   </div>
 </template>
 <script>
-
 import axios from "axios";
 import TwoCards from "./components/TwoCards";
 import CardSearch from "./components/CardSearch";
-
 export default {
   name: "App",
   components: {
@@ -45,6 +41,12 @@ export default {
         }
         console.log(this.currentResult)
       })
+    },
+    search() {
+        return this.tempFullList.filter( data => {
+          return !this.selectedCard ||
+            data.value.toLowerCase().indexOf(this.selectedCard.toLowerCase()) > -1
+      })
     }
   },
   data: () => {
@@ -68,7 +70,7 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: #2C3E50;
   margin-top: 60px;
 }
 </style>
