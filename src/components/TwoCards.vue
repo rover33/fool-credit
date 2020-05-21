@@ -7,10 +7,10 @@
           <img :src="cardOneData.offer_image" />
         </div>
       </div>
-        <button v-if="cardOneData.affiliate_link" class="card-apply">Apply Now</button>
-        <button v-else class="card-apply">Read Review</button>
-        <a class="full-review" href="#">Read our full review</a>
-        <label class="credit-rating-title">Credit Ratings</label>
+        <button v-if="cardOneData.affiliate_link" class="card-apply" v-on:click="btnClick">Apply Now</button>
+        <button v-else class="card-apply" v-on:click="btnClick">Read Review</button>
+        <a class="full-review" v-on:click="btnClick">Read our full review</a>
+        <label class="credit-rating-title">Credit Rating</label>
         <div class="credit-rating-box">
           <div class="credit-rating">Credit Rating:</div>
           <div class="credit-rating-text">{{cardOneData.credit_rating}}</div>
@@ -52,7 +52,7 @@
         <div class="we-like">What We Like</div>
         <div v-html="cardOneData.what_we_like" class="we-like-list" />
       </div>
-      <button class="card-apply">Apply Now</button>
+      <button class="card-apply" v-on:click="btnClick">Apply Now</button>
     </div>
     <div class="card-name">
       <div class="card-image-title-container">
@@ -61,8 +61,8 @@
           <img :src="cardTwoData.offer_image" />
         </div>
       </div>
-      <button class="card-apply">Apply Now</button>
-      <a class="full-review" href="#">Read our full review</a>
+      <button class="card-apply" v-on:click="btnClick">Apply Now</button>
+      <a class="full-review" v-on:click="btnClick">Read our full review</a>
       <label class="credit-rating-title">Credit Ratings</label>
         <div class="credit-rating-box">
           <div class="credit-rating">Credit Rating:</div>
@@ -105,7 +105,7 @@
         <div class="we-like">What We Like</div>
         <div v-html="cardTwoData.what_we_like" class="we-like-list" />
       </div>
-      <button class="card-apply">Apply Now</button>
+      <button class="card-apply" v-on:click="btnClick">Apply Now</button>
     </div>
   </div>
 </template>
@@ -114,7 +114,14 @@
 <script>
 export default {
   name: "Card",
-  props: ["cardOneData", "cardTwoData"],
+  props: ["cardOneData", "cardTwoData", "cardType"],
+
+  methods: {
+      btnClick: () => {
+        window.open("https://www.fool.com/the-ascent/credit-cards/compare-cards/")
+      }
+  },
+
   data: () => {
     return {};
   }
@@ -164,13 +171,27 @@ export default {
 }
 
 .card-apply {
-  background: green;
+  background: #2e842e;
+  border: 2px solid #2e842e;
   color: white;
   font-size: 1rem;
   font-weight: bold;
   margin-top: 1rem;
   border-radius: 5px;
   height: 3rem;
+}
+
+.card-apply:hover {
+  background: white;
+  color: #2e842e;
+}
+
+.card-apply:focus {
+  outline: none;
+}
+
+.full-review {
+  cursor: pointer;
 }
 
 .fees, 
@@ -267,9 +288,14 @@ img {
   }
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 460px) {
  .card-title {
     font-size: .8rem;
+  }
+
+  .credit-rating-box {
+    word-break: break-word;
+    text-align: left;
   }
 
   img {

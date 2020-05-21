@@ -3,7 +3,8 @@
     <div class="search-box">
       <form @submit="(e) => onSearch(e, selectedCredit, selectedCard)">
         <!-- <div class="credit-score-box"> -->
-        <label class="credit-score">Credit Score:</label>
+        <label class="search-credit-score">
+            Credit Score:
         <select v-model="selectedCredit">
           <option
             v-for="option in creditOptions"
@@ -11,9 +12,11 @@
             :key="option.value"
           >{{ option.text }}</option>
         </select>
+        </label>
         <!-- </div> -->
         <!-- <div class="card-box"> -->
-        <label class="card-type">Card Type:</label>
+        <label class="search-card-type">
+            Card Type:
         <select v-model="selectedCard">
           <option
             v-for="option in cardOptions"
@@ -22,9 +25,10 @@
             class="card-option"
           >{{ option.text }}</option>
         </select>
+        </label>
         <!-- </div> -->
         <div class="input-box">
-          <button type="submit" value="search">Search</button>
+          <button class="search-button" type="submit" value="search">Search</button>
         </div>
       </form>
     </div>
@@ -41,13 +45,14 @@ export default {
       selectedCredit: "",
       selectedCard: "",
       creditOptions: [
+        { text: "--", value: "" },
         { text: "Excellent", value: "excellent" },
         { text: "GoodExcellent", value: "goodexcellent" },
         { text: "Fair", value: "fair" },
-        { text: "NewFair", value: "newfair" },
         { text: "Bad", value: "bad" }
       ],
       cardOptions: [
+        { text: "--", value: "" },
         { text: "Balance Transfer", value: "balance_transfer" },
         { text: "Cash Back", value: "cash_back" },
         { text: "Travel", value: "travel" },
@@ -74,16 +79,74 @@ export default {
   padding-left: 1rem;
 }
 
-.card-type,
-.credit-score {
+.search-card-type,
+.search-credit-score {
   font-weight: bold;
+  font-size: 1.3rem;
 }
 
-input {
-  margin-top: 1rem;
+select {
+    height: 1.5rem;
+}
+
+form {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 30rem;
+}
+
+.input-box {
+    width: 100%
 }
 
 .search-box {
-  border: 1px solid red;
+  display: flex;
+}
+
+.search-button {
+    background: #2e842e;
+    color: white;
+    border: 2px solid #2e842e;
+    font-size: 1rem;
+    font-weight: bold;
+    margin-top: 1rem;
+    border-radius: 5px;
+    height: 2rem;
+    width: 8rem;
+}
+
+.search-button:hover {
+  background: white;
+  color: #2e842e;
+}
+
+.search-button:focus {
+  outline: none;
+}
+
+@media screen and (max-width: 1050px) {
+    select {
+        border: 1px solid blue;
+    }
+}
+
+
+@media screen and (max-width: 450px) {
+    form {
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .search-box {
+        display: unset;
+    }
+
+    .search-button {
+        margin-top: .5rem;
+        height: unset;
+    }
+
 }
 </style>
