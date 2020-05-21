@@ -1,7 +1,7 @@
 <template>
   <div class="search-container">
     <div class="search-box">
-      <form @submit="onSearch(selectedCredit, selectedCard)">
+      <form @submit="(e) => onSearch(e, selectedCredit, selectedCard)">
         <!-- <div class="credit-score-box"> -->
         <label class="credit-score">Credit Score:</label>
         <select v-model="selectedCredit">
@@ -35,22 +35,23 @@
 export default {
   name: "CardSearch",
   props: ["onSearch"],
+
   data: () => {
     return {
       selectedCredit: "",
       selectedCard: "",
       creditOptions: [
-        { text: "Excellent", value: "Excellent" },
-        { text: "GoodExcellent", value: "GoodExcellent" },
-        { text: "Fair", value: "Fair" },
-        { text: "NewFair", value: "NewFair" },
-        { text: "Bad", value: "Bad" }
+        { text: "Excellent", value: "excellent" },
+        { text: "GoodExcellent", value: "goodexcellent" },
+        { text: "Fair", value: "fair" },
+        { text: "NewFair", value: "newfair" },
+        { text: "Bad", value: "bad" }
       ],
       cardOptions: [
-        { text: "Balance Transfer", value: "Balance Transfer" },
-        { text: "Cash Back", value: "Cash Back" },
-        { text: "Travel", value: "Travel" },
-        { text: "Low Interest", value: "Low Interst" }
+        { text: "Balance Transfer", value: "balance_transfer" },
+        { text: "Cash Back", value: "cash_back" },
+        { text: "Travel", value: "travel" },
+        { text: "Low Interest", value: "low_interest" }
       ]
     };
   }
@@ -63,20 +64,25 @@ export default {
   display: flex;
   justify-content: center;
 }
+
 .credit-score-box,
 .card-box {
   text-align: left;
 }
+
 .card-option {
   padding-left: 1rem;
 }
+
 .card-type,
 .credit-score {
   font-weight: bold;
 }
+
 input {
   margin-top: 1rem;
 }
+
 .search-box {
   border: 1px solid red;
 }
