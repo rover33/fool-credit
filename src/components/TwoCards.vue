@@ -7,6 +7,7 @@
           <div class="card-image">
             <img :src="cardOneData.offer_image" />
           </div>
+        </div>
           <button v-if="cardOneData.affiliate_link" class="card-apply">Apply Now</button>
           <button v-else class="card-apply">Read Review</button>
           <a class="full-review" href="#">Read our full review</a>
@@ -24,7 +25,6 @@
             <div class="overall-fees-rating">Overall Fees Rating:</div>
             <div class="stars">{{cardOneData.fees_rating}}/5 stars</div>
           </div>
-        </div>
         <label class="fees">Fees</label>
         <div class="all-fees">
           <div class="annual-fee-header">Annual: </div>
@@ -48,6 +48,8 @@
           <div class="bonus">{{cardOneData.bonus}}</div>
           <div class="rewards-title">Rewards Program</div>
           <div class="rewards">{{cardOneData.rewards_program}}</div>
+          <div class="highlights-title">Highlights</div>
+          <div class="highlights-list" v-html="cardOneData.marketing_bullets"/>
           <div class="we-like">What We Like</div>
           <div v-html="cardOneData.what_we_like" class="we-like-list" />
         </div>
