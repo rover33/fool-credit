@@ -1,8 +1,10 @@
 <template>
   <div id="app">
     <CardSearch :onSearch="search"/>
-    <div class="intro-page" v-if="this.currentResult.card1.offer_name === '' && this.currentResult.card2.offer_name === '' ">
-        Choose options in dropdown to see what we recommend
+    <div class="intro-box" v-if="this.currentResult.card1.offer_name === '' && this.currentResult.card2.offer_name === '' ">
+      <div class="intro-page" >
+          Choose options in dropdown to see what we recommend
+      </div>
     </div>
     <TwoCards v-else :cardOneData="this.currentResult.card1" :cardTwoData="this.currentResult.card2" />
   </div>
@@ -86,15 +88,18 @@ export default {
   margin-top: 60px;
 }
 
+.intro-box {
+  width: 50%;
+  transform: translateX(50%);
+}
+
 .intro-page {
   color: #AC145A;
   font-size: 1rem;
   font-weight: bold;
   border-radius: 4px;
   box-shadow: 0 0 6px 2px rgba(0,0,0,0.2);
-  max-width: 30%;
   padding: 1rem;
-  transform: translateX(100%);
   word-break: break-word;
-  }
+}
 </style>

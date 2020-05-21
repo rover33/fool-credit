@@ -65,7 +65,7 @@ export default {
 
 <style>
 .search-container {
-  height: 6rem;
+  height: 7rem;
   display: flex;
   justify-content: center;
 }
@@ -91,9 +91,13 @@ select {
 
 form {
     display: flex;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    width: 30rem;
+    flex-direction: row;
+    width: 35rem;
 }
 
 .input-box {
@@ -101,7 +105,10 @@ form {
 }
 
 .search-box {
-  display: flex;
+    display: -webkit-box;   /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+    display: -ms-flexbox;  /* TWEENER - IE 10 */
+    display: -webkit-flex; /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
+    display: flex; 
 }
 
 .search-button {
