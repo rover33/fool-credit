@@ -26,4 +26,4 @@ I desgined the page off the exisitng card comparison tool on the Ascent Webpage.
 
 ### Code Sandbox Link
 
-[link to codesandbox](https://codesandbox.io/s/dark-dust-xwzmt?file=/src/App.vue)
+[link to the code sandbox running the app](https://codesandbox.io/s/dark-dust-xwzmt?file=/src/App.vue)
