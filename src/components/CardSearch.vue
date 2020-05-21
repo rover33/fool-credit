@@ -2,7 +2,6 @@
   <div class="search-container">
     <div class="search-box">
       <form @submit="(e) => onSearch(e, selectedCredit, selectedCard)">
-        <!-- <div class="credit-score-box"> -->
         <label class="search-credit-score">
             Credit Score:
         <select v-model="selectedCredit">
@@ -13,8 +12,6 @@
           >{{ option.text }}</option>
         </select>
         </label>
-        <!-- </div> -->
-        <!-- <div class="card-box"> -->
         <label class="search-card-type">
             Card Type:
         <select v-model="selectedCard">
@@ -26,7 +23,6 @@
           >{{ option.text }}</option>
         </select>
         </label>
-        <!-- </div> -->
         <div class="input-box">
           <button class="search-button" type="submit" value="search">Search</button>
         </div>
